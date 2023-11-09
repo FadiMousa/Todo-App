@@ -2,13 +2,13 @@ const expressSession = require("express-session")
 const sessionStore = require("connect-mongodb-session")(expressSession)
 
 const store = new sessionStore({
-  uri: "mongodb://localhost/TODOSAPP",
+  uri: process.env.DATABASE_URL,
   collection: "sessions",
 })
 
 const session = {
   name: "auth",
-  secret: "top secret",
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: {
