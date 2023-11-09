@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../main.css" />
+    <title>TOOD'S</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">
+        <form action="/auth/logout" method="post">
+          <div class="form-group">
+            <h2><%= user %>'s TODO'S</h2>
+            <input type="submit" value="Logout" />
+          </div>
+        </form>
+      </div>
+      <form action="/addtodo" method="post">
+        <div class="form-group">
+          <textarea
+            rows="1"
+            spellcheck="false"
+            name="todo"
+            required
+            oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+          ></textarea>
+          <input type="submit" value="Add" />
+        </div>
+      </form>
+      <div class="todos-list">
+        <% todos.forEach(todo => { %>
+        <div class="todo-item">
+          <div class="check-done-<%= todo.done %>">&#x2713;</div>
+          <a
+            href="/changetodostatus/<%= todo._id %>"
+            class="done-<%= todo.done %>"
+            ><%= todo.todo %></a
+          >
+
+          <% if (!todo.done) { %>
+          <a href="/edittodo/<%= todo._id %>" class="del-button">&#9999;</a>
+          <% } %>
+
+          <a href="/deletetodo/<%= todo._id %>" class="del-button">&#128465;</a>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>

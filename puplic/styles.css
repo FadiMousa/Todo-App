@@ -1,0 +1,128 @@
+:root {
+  -clr-1: #fff;
+  --clr-2: #255996;
+  --clr-3: #1b3049;
+  --clr-4: #171f29;
+  --clr-5: hsl(42, 100%, 50%);
+
+  --clr-dark: rgba(0, 0, 0, 0.25);
+  --clr-body: rgba(255, 255, 255, 0.8);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background-color: var(--clr-4);
+  font-family: sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-image: url("bg.jpg");
+  background-size: cover;
+  background-blend-mode: difference;
+}
+
+.container {
+  width: 450px;
+  height: 500px;
+  background-color: var(--clr-2);
+  border-radius: 5px;
+  box-shadow: 10px 10px 20px black;
+}
+.logo {
+  color: white;
+  text-align: center;
+  margin-block: 1rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.container h1 {
+  color: white;
+  width: 80%;
+  margin: auto;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 1.25rem auto;
+  width: 80%;
+  color: var(--clr-body);
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.form-group input {
+  font-size: 1rem;
+  background-color: var(--clr-dark);
+  padding: 10px;
+  color: var(--clr-body);
+  border: none;
+  letter-spacing: 2px;
+  border-radius: 5px;
+}
+
+.form-group input:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 0.25rem;
+}
+
+.form-group input[type="submit"] {
+  background-color: var(--clr-5);
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: bold;
+  letter-spacing: 1px;
+  width: 40%;
+  transition: transform 250ms ease-in-out;
+  margin-top: 1rem;
+}
+
+.form-group input[type="submit"]:hover {
+  transform: scale(1.1);
+}
+
+.form-group p {
+  letter-spacing: 1px;
+}
+.form-group a {
+  color: white;
+  font-size: 1.1rem;
+
+  border-radius: 5px;
+}
+
+.form-group a:hover {
+  color: var(--clr-body);
+}
+
+.form-group a:focus-visible {
+  outline: 3px solid white;
+  border: none;
+  outline-offset: 0.25rem;
+}
+
+.message {
+  color: lawngreen;
+  letter-spacing: 1px;
+  height: 22px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    transform: scale(0.8);
+  }
+}
